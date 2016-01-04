@@ -80,17 +80,13 @@ ApplicationWindow {
             }
         }
 
-        //Sidebar
+        //Tabs
         Repeater {
-            model: !navDrawer.enabled ? categories : 0
+            model: !navDrawer.enabled ? categoryTitles : 0
 
             delegate: Tab {
-                title: categoryTitles[index]
-
-                property string selectedComponent: modelData[0]
-                property var section: modelData
-
-                sourceComponent: tabDelegate
+                title: modelData
+                // TODO: filter by category // onclick:
             }
         }
     }
@@ -99,36 +95,6 @@ ApplicationWindow {
         id: settings
         visible: false
         title: "App Store Settings"
-    }
-
-
-//Sidebar app types
-    Component {
-        id: tabDelegate
-
-        Item {
-            Sidebar {
-                id: sidebar
-
-                expanded: !navDrawer.enabled
-
-                Column {
-                    width: parent.width
-
-                    Repeater {
-                        model: section
-                        delegate: ListItem.Standard {
-                            text: modelData
-                            selected: modelData == selectedComponent
-                            onClicked: selectedComponent = modelData
-                        }
-                    }
-                }
-            }
-            Scrollbar {
-                flickableItem: flickable
-            }
-        }
     }
 
     Component.onCompleted : {

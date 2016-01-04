@@ -4,8 +4,6 @@
 #include <QtCore/QStandardPaths>
 #include <QDebug>
 
-//#include "appmanager.h"
-
 #define TR(x) QT_TRANSLATE_NOOP("Command line parser", QStringLiteral(x))
 
 int main(int argc, char *argv[])
