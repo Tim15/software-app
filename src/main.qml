@@ -35,7 +35,7 @@ ApplicationWindow {
             Action {
                 iconName: "action/search"
                 name: "Search"
-                onTriggered: // TODO: Implement a Material searchbar
+                //onTriggered: TODO: Implement a Material searchbar
             },
             Action {
                 iconName: "action/settings"
